@@ -36,6 +36,9 @@
 # to become a node.
 - import_playbook: ../../openshift-node/private/image_prep.yml
 
+- hosts: localhost
+  connection: local
+
 - import_playbook: seal_ami.yml
   vars:
     openshift_aws_ami_name: "openshift-gi-{{ lookup('pipe', 'date +%Y%m%d%H%M')}}"

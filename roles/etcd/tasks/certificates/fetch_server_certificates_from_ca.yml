@@ -170,11 +170,6 @@
   - "{{ etcd_ca_dir }}"
   when: etcd_server_certs_missing | bool
 
-- name: Delete temporary directory
-  local_action: file path="/tmp/{{ inventory_hostname }}" state=absent
-  changed_when: False
-  when: etcd_server_certs_missing | bool
-
 - name: Validate permissions on certificate files
   file:
     path: "{{ item }}"
